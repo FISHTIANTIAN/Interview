@@ -15,3 +15,17 @@
 // }
 //
 // fun1();
+
+// function foo() {
+//     console.log(a);
+//     a = 1;
+// }
+//
+// foo(); // ???
+//
+// function bar() {
+//     a = 2;
+//     console.log(a);
+// }
+// bar(); // ???
+
