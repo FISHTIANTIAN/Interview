@@ -7,7 +7,7 @@
     - [集中收集](ZTTUO/JavaScript/集中收集/index.md)
     
 - DAY_20210119
-    - [针对性面试题](针对性面试题/JavaScript原型链.md)
+    - [针对性面试题_JavaScript原型链](针对性面试题/JavaScript原型链.md)
 
 ### 目标
 
