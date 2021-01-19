@@ -63,3 +63,21 @@
 //
 // foo();
 // bar();
+
+Function.prototype.a = () => {
+    console.log(1)
+}
+
+// 在JavaScript中，几乎所有的对象都是Object类型的实例，它们都会从Object.prototype继承属性和方法。
+Object.prototype.b = () => {
+    console.log(2)
+}
+
+function A() { }
+const a = new A()
+
+// 求：
+// a.a() //is not a function
+a.b() //2
+A.a() //1
+A.b() //2
