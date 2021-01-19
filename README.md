@@ -1,3 +1,6 @@
+### github git clone 慢解决方案
+git clone https://github.com.cnpmjs.org/项目地址
+
 ### ZT学习打卡
 
 - DAY_20210118
