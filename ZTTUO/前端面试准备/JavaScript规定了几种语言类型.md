@@ -16,6 +16,7 @@
   - function
   - object
   - array
+  - RegExp
 
 #### ES6新增：Symbol
 

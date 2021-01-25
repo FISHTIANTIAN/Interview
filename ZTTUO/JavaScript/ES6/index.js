@@ -96,3 +96,30 @@
 // for (const key in arr.xxx) {
 //     console.log(key)
 // }
+
+// Object.prototype.hack = '污染原型的属性';
+// const obj = { name: 'xiaoHong', age: 18 };
+// for (const key in obj) {
+//     console.log(key);
+//
+//     if (obj.hasOwnProperty(key)) {
+//         console.log(obj[key]);
+//     }
+// }
+
+// function Page() {
+//     return this.hosts;
+// }
+// Page.hosts = ['h1'];
+// Page.prototype.hosts = ['h2'];
+//
+// const p1 = new Page();
+// const p2 = Page();
+//
+//
+// console.log(p1);
+// console.log(p1.hosts);
+// console.log(p2);
+// Window.prototype.hosts = ['hosts']
+// console.log(Page());
+// console.log(p2.hosts);

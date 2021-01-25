@@ -1,3 +1,4 @@
+
 ## Symbol 的特性
 
 1. Symbol 值通过 Symbol 函数生成，使用 typeof，结果为 "symbol"**
