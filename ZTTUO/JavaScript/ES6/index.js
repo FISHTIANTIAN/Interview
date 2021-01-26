@@ -201,3 +201,34 @@
 // console.log(person.strength) // 60
 //
 // person.sayYourName(); // I am Kevin
+
+// function Parent(){
+//     this.name = "parent";
+//     this.list = ['a'];
+// }
+// Parent.prototype.sayHi = function(){
+//     console.log('hi');
+// }
+// function Child(){
+//
+// }
+// Child.prototype = new Parent();
+// var child = new Child();
+// console.log(child.name);
+// child.sayHi();
+// var a = new Child();
+// var b = new Child();
+// a.list.push('b');
+// a.name= 'a';
+// console.log(b.list);
+// console.log(a.list);
+// console.log(b.name);
+//
+// function Child1(){
+//     this.list = ['a'];
+// }
+// var a1 = new Child1();
+// var b1 = new Child1();
+// a1.list.push('b');
+// console.log(b1.list);
+// console.log(a1.list);
