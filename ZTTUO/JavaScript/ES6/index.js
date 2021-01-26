@@ -157,3 +157,13 @@
 // var personObj2 = changeAgeAndReference(personObj1);
 // console.log(personObj1); // -> ?
 // console.log(personObj2); // -> ?
+
+// let x = [1, 2, 3];
+// let y = x;
+// let z = [4, 5, 6];
+// y[0] = 10;
+// y = z;
+// z[1] = 20;
+// x[2] = z = 30;
+// console.log(x, y, z); // [10, 2, 30], [4, 20, 6], 30
+
