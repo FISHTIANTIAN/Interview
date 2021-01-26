@@ -123,3 +123,37 @@
 // Window.prototype.hosts = ['hosts']
 // console.log(Page());
 // console.log(p2.hosts);
+
+
+// let a = {
+//     n: 1
+// };
+// let b = a;
+// a = {
+//     n: 2
+// };
+// a.x = a = {
+//     n: 2
+// };
+// console.log(a.x);
+// console.log(b);
+// console.log(a);
+
+// function changeAgeAndReference(person) {
+//     console.log(person)
+//     person.age = 25;
+//     console.log(person)
+//     person = {
+//         name: "John",
+//         age: 50
+//     };
+//     console.log(person)
+//     return person;
+// }
+// var personObj1 = {
+//     name: "Alex",
+//     age: 30
+// };
+// var personObj2 = changeAgeAndReference(personObj1);
+// console.log(personObj1); // -> ?
+// console.log(personObj2); // -> ?
