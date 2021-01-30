@@ -1,1 +1,3 @@
-console.log('1'.toString())
+function F(){};
+
+console.log(F)
