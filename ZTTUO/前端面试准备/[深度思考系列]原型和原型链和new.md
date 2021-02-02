@@ -29,6 +29,25 @@ xxx.__proto__  返回的东西其实就是 Object.getPrototypeOf(obj)方法返�
 
 ## new 一个构造函数的时候发生的事情：
 - 创建一个空的简单JavaScript对象/Objcect对象（即{}）；
-- 链接该对象（即设置该对象的构造函数）到另一个对象 ；
+- 链接该对象（即设置该对象的构造函数）到一个新的对象 ；
 - 将步骤1新创建的对象作为this的上下文 ；
 - 如果该函数没有返回对象，则返回this。
+
+## 手动实现new的过程
+
+function Create() {
+    // 创建一个空的对象
+    let _obj = new Object();
+    // 获得构造函数
+    let _con = [].shift.call(arguments);
+    // 链接到原型
+    _obj.__proto__ = _con.prototype;
+    // 绑定 this，执行构造函数
+    let _res = _obj.apply(_obj, arguments)
+    // 确保 new 出来的是个对象
+    return typeof _res == 'object' ? _res : _obj
+}
+
+## 参考连接
+
+https://github.com/KieSun/Dream/issues/2
