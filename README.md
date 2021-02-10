@@ -23,6 +23,10 @@ git clone https://github.com.cnpmjs.org/项目地址
 
 [详情](./ZTTUO/前端面试准备/html/浏览器存储.md)
 
+> HTTP状态码
+
+[详情](./ZTTUO/前端面试准备/html/HTTP状态码.md)
+
 ## CSS基础
 
 
