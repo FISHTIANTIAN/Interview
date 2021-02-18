@@ -1,6 +1,8 @@
 ## 参考文章
 
-http://47.98.159.95/my_blog/blogs/css/008.html#_1-%E4%BB%80%E4%B9%88%E6%98%AFbfc
+[神三元整理的BFC](http://47.98.159.95/my_blog/blogs/css/008.html#_1-%E4%BB%80%E4%B9%88%E6%98%AFbfc)
+
+[比较全的BFC](https://i-want-offer.github.io/FE-Essay/CSS/BFC.html)
 
 ## BFC规定了内部的Block Box如何布局。
 
