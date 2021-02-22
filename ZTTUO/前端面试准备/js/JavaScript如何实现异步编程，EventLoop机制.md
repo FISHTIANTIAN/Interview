@@ -14,3 +14,8 @@
 - 5、回到步骤 1，直到宏任务执行完毕；
 
 这就是一个EventLoop
+
+## EventLoop深入解读（多看多读多理解）
+
+https://github.com/fi3ework/blog/issues/29
+
