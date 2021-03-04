@@ -1,8 +1,14 @@
-for (var i = 0; i < 5; i++) {
-    setTimeout(function() {
-        console.log( i);
-    }, 1000);
-}
+var Book = {}
+var name = ''
+Object.defineProperty(Book, 'name', {
+    set: function (value) {
+        name = value
+        console.log('你取了一个书名叫做' + value);
+    },
+    get: function () {
+        console.log('《' + name + '》')
+    }
+})
 
-console.log('i:',i);
-
+Book.name = 'vue权威指南';  // 你取了一个书名叫做vue权威指南
+console.log(Book.name);  // 《vue权威指南》
