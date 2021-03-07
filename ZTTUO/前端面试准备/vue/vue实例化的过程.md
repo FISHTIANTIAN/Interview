@@ -1,7 +1,8 @@
 ## vue实例化的过程
 ![img.png](https://img2018.cnblogs.com/i-beta/1107056/201912/1107056-20191207141838550-617704833.png)
 
-参考连接：[vue实例化过程](https://www.cnblogs.com/gerry2019/p/12001661.html)
+参考连接1：[vue实例化过程1](https://www.cnblogs.com/gerry2019/p/12001661.html)
+参考连接2：[vue实例化过程2](https://vue3js.cn/interview/vue/new_vue.html)
 
 ### 过程解析
 
@@ -9,8 +10,7 @@
 
 2、_init（）方法中
 
-    合并属性，判断初始化的是否是组件
-    合并vue属性
+    合并vue属性（得到合并后的data，type，function等）
     初始化proxy拦截器
     初始化组件生命周期标志符
     初始化组件事件侦听
@@ -66,6 +66,7 @@
 
 ### 总结
 
+    0、接收参数option，option中包含了（挂载的目标el，数据data，组件components）
     1、实例化属性进行合并
     2、初始化组件生命周期标志符
     3、初始化组件事件系统
@@ -110,3 +111,17 @@
     
         挂载dom的方法：
         先添加新数据生成的节点，然后再移除老的节点
+
+### 总结2
+
+1、接收参数option，option中包含了（挂载的目标el，数据data，组件components）
+2、调用_init（）方法将（生命周期、组件事件侦听、props/data/method/watch/methods等方法）进行初始化
+3、调用$mount进行页面的挂载
+4、定义updateComponent更新函数
+5、执行render生成虚拟DOM
+6、_update将虚拟DOM生成真实DOM结构，并且渲染到页面中
+
+### 总结3
+
+监听数据
+渲染页面
