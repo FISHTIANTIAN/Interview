@@ -2,7 +2,7 @@
 
 效果图：
 
-![img.png](img.png)
+![img.png](img/img.png)
 
 ```css
 /*css代码*/
@@ -32,7 +32,7 @@
 
 效果图：
 
-![img.png](img.png)
+![img.png](img/img.png)
 
 ```css
 /*css代码*/
@@ -63,7 +63,7 @@
 
 效果图：
 
-![img_1.png](img_1.png)
+![img_1.png](img/img_1.png)
 
 ```css
 /*css代码*/
@@ -92,7 +92,7 @@
 
 效果图：
 
-![img.png](img.png)
+![img.png](img/img.png)
 
 ```css
 /*css代码*/
@@ -125,7 +125,7 @@
 
 效果图：
 
-![img_2.png](img_2.png)
+![img_2.png](img/img_2.png)
 
 ```css
 /*css代码*/
@@ -157,7 +157,7 @@
 
 效果图：
 
-![img.png](img.png)
+![img.png](img/img.png)
 
 ```css
 /*css代码*/
@@ -184,4 +184,4 @@
 
 ## 总结
 
-![img_14.png](img_14.png)
+![img_14.png](img/img_14.png)

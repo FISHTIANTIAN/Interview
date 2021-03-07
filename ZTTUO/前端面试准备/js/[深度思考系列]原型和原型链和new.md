@@ -48,9 +48,9 @@ function Create() {
     return typeof _res == 'object' ? _res : _obj
 }
 
-![img.png](img.png)
+![img.png](img/img.png)
 
-![img_1.png](img_1.png)
+![img_1.png](img/img_1.png)
 
 ## 参考连接
 
