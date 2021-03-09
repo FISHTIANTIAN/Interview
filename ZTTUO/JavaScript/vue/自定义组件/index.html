@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="initial-scale=1.0,maximum-scale=1.0">
+    <title>Title</title>
+    <script src="https://cdn.bootcdn.net/ajax/libs/vue/2.6.0/vue.min.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <span v-hello="color3">{{message}}</span>
+        <button @click="add"> 点击开始加1</button>
+        <button onclick="jiebang()">解绑</button>
+        <div v-demo:foo.a.b="message"></div>
+    </div>
+</body>
+<script>
+    // bind 只调用一次，指令第一次绑定到元素时候调用，用这个钩子可以定义一个绑定时执行一次的初始化动作。
+
+    // inserted:被绑定的元素插入父节点的时候调用(父节点存在即可调用，不必存在document中)
+
+    // update: 被绑定于元素所在模板更新时调用，而且无论绑定值是否有变化，通过比较更新前后的绑定值，忽略不必要的模板更新
+
+    // componentUpdate :被绑定的元素所在模板完成一次更新更新周期的时候调用
+
+    // unbind: 只调用一次，指令与元素解绑的时候调用
+
+    //解绑vue
+    function jiebang() {
+        app.$destroy();
+    }
+
+    Vue.directive("demo", {
+        bind: function (el, binding, vnode) {
+            var s = JSON.stringify
+            el.innerHTML =
+                'name: ' + s(binding.name) + '<br>' +
+                'value: ' + s(binding.value) + '<br>' +
+                'expression: ' + s(binding.expression) + '<br>' +
+                'argument: ' + s(binding.arg) + '<br>' +
+                'modifiers: ' + s(binding.modifiers) + '<br>' +
+                'vnode keys: ' + Object.keys(vnode).join(', ')
+        }
+    })
+    // HTML： <div v-demo:foo.a.b="message"></div>
+    // 打印内容{
+    //   name: "demo"
+    //   value: 10
+    //   expression: "message"
+    //   argument: "foo"
+    //   modifiers: {"a":true,"b":true}
+    //   vnode keys: tag, data, children, text, elm, ns, context, fnContext, fnOptions, fnScopeId, key, componentOptions,
+    //   componentInstance, parent, raw, isStatic, isRootInsert, isComment, isCloned, isOnce, asyncFactory, asyncMeta,
+    //   isAsyncPlaceholder
+    // }
+
+    Vue.directive("hello", {
+        bind: function (el, bingind, vnode) {
+            //只调用一次，指令第一次绑定到元素时候调用，
+            //用这个钩子可以定义一个绑定时执行一次的初始化动作。
+            console.log(bingind.value)
+            el.style["color"] = bingind.value;
+            console.log("1-bind", bingind);
+        },
+        inserted: function () {
+            //被绑定的元素插入父节点的时候调用(父节点存在即可调用，不必存在document中)
+            console.log("2-inserted", );
+        },
+        update: function () {
+            //被绑定于元素所在模板更新时调用，而且无论绑定值是否有变化
+            //通过比较更新前后的绑定值，忽略不必要的模板更新
+            console.log("3-update");
+        },
+        componentUpdated: function () {
+            //被绑定元素所在模板完成一次更新周期时调用
+            console.log('4 - componentUpdated');
+        },
+        unbind: function () {
+            //只调用一次，指令与元素解绑时调用。
+            console.log('5 - unbind');
+        }
+    })
+    var app = new Vue({
+        el: "#app",
+        data: {
+            message: 10,
+            color3: "red"
+        },
+        methods: {
+            add: function () {
+                this.message++;
+            }
+        }
+    })
+</script>
+
+</html>
