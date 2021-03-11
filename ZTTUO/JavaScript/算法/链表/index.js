@@ -42,4 +42,4 @@ while (curr != null) {
     prev = curr;
     curr = next;
 }
-return prev;
+// return prev;

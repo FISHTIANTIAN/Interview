@@ -114,7 +114,7 @@
 ### 总结2
 
 1、接收参数option，option中包含了（挂载的目标el，数据data，组件components）
-2、调用_init（）方法将（生命周期、组件事件侦听、props/data/method/watch/methods等方法）进行初始化
+2、调用_init（）方法将（生命周期标志位、组件事件侦听、props/data/method/watch/methods等方法）进行初始化
 3、调用$mount进行页面的挂载
 4、定义updateComponent更新函数
 5、执行render生成虚拟DOM
