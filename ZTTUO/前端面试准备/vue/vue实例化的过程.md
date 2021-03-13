@@ -1,5 +1,6 @@
 ## vue实例化的过程
 ![img.png](https://img2018.cnblogs.com/i-beta/1107056/201912/1107056-20191207141838550-617704833.png)
+![img.png](img/img.png)
 
 参考连接1：[vue实例化过程1](https://www.cnblogs.com/gerry2019/p/12001661.html)
 参考连接2：[vue实例化过程2](https://vue3js.cn/interview/vue/new_vue.html)
