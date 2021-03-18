@@ -27,3 +27,13 @@
     2、编译界面，并为指令和模板添加观察者
     4、通过调用render方法生成vnode
     5、通过对调用__patch__生成真实dom，并进行替换
+
+### 精简
+
+    由于 Vue 执行一个组件的 render 函数是由 Watcher 去代理执行的，
+    Watcher 在执行前会把 Watcher 自身先赋值给 Dep.target 这个全局变量，
+    等待响应式属性去收集它这样在哪个组件执行 render 函数时访问了响应式属性，
+    响应式属性就会精确的收集到当前全局存在的 Dep.target 作为自身的依赖
+    在响应式属性发生更新时通知 Watcher 去重新
+    调用 vm._update(vm._render()) 进行组件的视图更新
+

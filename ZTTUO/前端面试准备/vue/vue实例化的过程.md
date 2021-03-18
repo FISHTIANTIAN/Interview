@@ -69,7 +69,7 @@
 
     0、接收参数option，option中包含了（挂载的目标el，数据data，组件components）
     1、实例化属性进行合并
-    2、初始化组件生命周期标志符
+    2、初始化组件生命周期标志符 
     3、初始化组件事件系统
     4、初始化render方法（$arrt,$createElement）
     5、初始化组件依赖注入内容
