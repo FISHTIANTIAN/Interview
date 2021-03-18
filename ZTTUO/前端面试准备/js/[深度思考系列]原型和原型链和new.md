@@ -1,4 +1,6 @@
 ## 明确什么是构造函数、实例对象、实例原型
+
+```javascript
 function Person() {
 
 }
@@ -11,17 +13,17 @@ var person1 = new Person();
 var person2 = new Person();
 console.log(person1.name) // Kevin
 console.log(person2.name) // Kevin
+```
 
-构造函数：大Person
-实例对象：小person
-构造函数的prototype指向实例原型（用来储存公共内容）
-实例原型有constructor指向构造函数（用来储存私有内容）
+    构造函数：大Person
+    实例对象：小person
+    构造函数的prototype指向实例原型（用来储存公共内容）
+    实例原型有constructor指向构造函数（用来储存私有内容）
 
-
-1、通过构造函数创建了一个实例对象
-2、实例对象调用构造函数创建了实例原型
-3、实例对象有一个‘__proto__’属性指向实例原型
-4、每一个实例原型都有constructor属性指向构造函数
+    1、通过构造函数创建了一个实例对象
+    2、实例对象调用构造函数创建了实例原型
+    3、实例对象有一个‘__proto__’属性指向实例原型
+    4、每一个实例原型都有constructor属性指向构造函数
 
 __proto__ 是浏览器支持的，不存在实例原型中。
 
@@ -35,6 +37,7 @@ xxx.__proto__  返回的东西其实就是 Object.getPrototypeOf(obj)方法返�
 
 ## 手动实现new的过程
 
+```javascript
 function Create() {
     // 创建一个空的对象
     let _obj = new Object();
@@ -47,6 +50,7 @@ function Create() {
     // 确保 new 出来的是个对象
     return typeof _res == 'object' ? _res : _obj
 }
+```
 
 ![img.png](img/img.png)
 
