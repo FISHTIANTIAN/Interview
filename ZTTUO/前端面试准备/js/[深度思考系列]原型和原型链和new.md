@@ -13,8 +13,7 @@ var person1 = new Person();
 var person2 = new Person();
 console.log(person1.name) // Kevin
 console.log(person2.name) // Kevin
-```
-
+```text
     构造函数：大Person
     实例对象：小person
     构造函数的prototype指向实例原型（用来储存公共内容）
@@ -29,7 +28,8 @@ __proto__ 是浏览器支持的，不存在实例原型中。
 
 xxx.__proto__  返回的东西其实就是 Object.getPrototypeOf(obj)方法返回的东西
 
-## new 一个构造函数的时候发生的事情：
+## new 一个构造函数的时候发生的事情
+
 - 创建一个空的简单JavaScript对象/Objcect对象（即{}）；
 - 链接该对象（即设置该对象的构造函数）到一个新的对象 ；
 - 将步骤1新创建的对象作为this的上下文 ；
@@ -51,7 +51,6 @@ function Create() {
     return typeof _res == 'object' ? _res : _obj
 }
 ```
-
 
 ![img.png](img/img.png)
 
