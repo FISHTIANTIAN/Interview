@@ -28,11 +28,18 @@
         if (canvas.getContext) {
             var ctx = canvas.getContext('2d');
             // drawing code here
-            ctx.fillStyle = "rgb(200,0,0)";
-            ctx.fillRect(10, 10, 55, 50);
+            ctx.fillStyle = "rgba(200, 0, 0, 1)"; // 创建一个画笔颜色
+            ctx.fillRect(25, 25, 100, 100); // 绘制一个填充的矩形
+            ctx.clearRect(45, 45, 60, 60); // 绘制一个矩形的边框
+            ctx.strokeRect(50, 50, 50, 50); // 清除指定矩形区域，让清除部分完全透明
 
-            ctx.fillStyle = "rgba(0, 0, 200, 0.5)";
-            ctx.fillRect(30, 30, 55, 50);
+            ctx.fillStyle = "rgba(0, 0, 0, 1)"; // 创建一个画笔颜色
+            ctx.beginPath();
+            ctx.moveTo(75, 50);
+            ctx.lineTo(100, 75);
+            ctx.lineTo(100, 25);
+            ctx.fill();
+
         } else {
             // canvas-unsupported code here
         }
