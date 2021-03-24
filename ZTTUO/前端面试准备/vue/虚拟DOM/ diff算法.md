@@ -36,3 +36,7 @@ Vue.js通过编译将template 模板转换成渲染函数(render ) ，执行渲�
 - patch(container,vnode) :初次渲染的时候，将VDOM渲染成真正的DOM然后插入到容器里面。
 
 - patch(vnode,newVnode):再次渲染的时候，将新的vnode和旧的vnode相对比，然后之间差异应用到所构建的真正的DOM树上。
+
+## 参考资料
+
+[资料1](https://blog.fundebug.com/2019/06/26/vue-virtual-dom/)
