@@ -232,3 +232,17 @@
 // a1.list.push('b');
 // console.log(b1.list);
 // console.log(a1.list);
+
+const arr = [1, 1, '1', '1', 0, 0, '0', '0', undefined, undefined, null, null, NaN, NaN, {}, {}, [], [], 'a', 'a'];
+Array.prototype.unique = function () {
+    const tmp = new Map();
+    return this.filter(item => {
+        console.log(tmp)
+        return !tmp.has(item) && tmp.set(item, 1);
+    })
+}
+
+// Array.prototype.unique = function () {
+//     return [...new Set(this)];
+// }
+console.log(arr.unique())
