@@ -33,3 +33,7 @@
 是es7出来的一个语法糖，被称为promies的完美代替方案
 
 浏览器适配程度高，切代码清晰
+
+- async 是Generator函数的语法糖，并对Generator函数进行了改进
+- async的实现就是将Generator 函数和自动执行器，包装在一个函数里
+- Generator封装中使用的promise来进行执行，并return了一个resolve（立即执行）
