@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<script src="./js/jquery.min.js"></script>
+	<script src="./js/app.js"></script>
+	<script>
+		var gui = require('nw.gui');
+		gui.Screen.Init();
+		var screens = gui.Screen.screens;
+		var lastScreen = screens[screens.length - 1];
+		var win = gui.Window.get();
+
+		win.moveBy(lastScreen.bounds.x, lastScreen.bounds.y);
+		win.enterFullscreen();
+
+		win.on('resize', function () {
+			setTimeout(' hexagon.init();', 1000);
+		});
+
+		var screenCB = {
+			onDisplayAdded: function (screen) {
+				var screens = gui.Screen.screens;
+				var lastScreen = screens[screens.length - 1];
+				win.leaveFullscreen();
+				win.moveBy(lastScreen.bounds.x, lastScreen.bounds.y);
+				win.enterFullscreen();
+			}
+		};
+
+		gui.Screen.on('displayAdded', screenCB.onDisplayAdded);
+	</script>
+</head>
+
+<body>
+	<button type="video" equipment="cylinder" url="./assets/video/1.mp4">圆筒</button>
+	<button type="video" equipment="screen" url="./assets/video/1.mp4">大屏</button>
+	<button type="ifram" equipment="aviation" url="https://www.baidu.com">航空租赁</button>
+	<button type="ifram" equipment="shipping" url="https://www.baidu.com">航运租赁</button>
+	<button type="ifram" equipment="financial" url="https://www.baidu.com">金融数据</button>
+	<script>
+		let button = $('button')
+		let config = {
+			type: '',
+			equipment: '',
+			url: ''
+		}
+
+		var scoket = new WebSocket('ws://localhost:3000')
+		scoket.addEventListener('open', function () {
+			console.log('链接成功')
+		})
+
+		button.click(function () {
+			config.type = $(this).attr("type")
+			config.equipment = $(this).attr("equipment")
+			config.url = $(this).attr("url")
+
+			// 发送配置文件
+			const _config = JSON.stringify(config);
+			console.log(_config)
+			scoket.send(_config)
+		})
+	</script>
+</body>
+
+</html>
