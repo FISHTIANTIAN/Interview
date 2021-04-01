@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            border: 1px solid #000;
+        }
+    </style>
+</head>
+<body>
+<input type="text">
+<button>发送</button>
+<div></div>
+<script>
+    var button = document.querySelector('button')
+    var input = document.querySelector('input')
+    var div = document.querySelector('div')
+    var scoket = new WebSocket('ws://localhost:3000')
+    scoket.addEventListener('open',function(){
+        console.log('链接成功')
+        div.innerHTML = '链接成功' + `</br>`
+    })
+
+    button.addEventListener('click',function(){
+        var value = input.value
+        scoket.send(value)
+    })
+
+    scoket.addEventListener('message', function(e) {
+        console.log(JSON.parse(e.data))
+        const msg = JSON.parse(e.data)
+        var dv = document.createElement("p")
+        dv.innerHTML = msg.data
+        div.appendChild(dv)
+    })
+</script>
+</body>
+</html>
