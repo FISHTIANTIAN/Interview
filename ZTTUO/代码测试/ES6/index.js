@@ -234,6 +234,8 @@
 // console.log(a1.list);
 
 const arr = [1, 1, '1', '1', 0, 0, '0', '0', undefined, undefined, null, null, NaN, NaN, {}, {}, [], [], 'a', 'a'];
+
+// 去重方案1 （更加好）
 Array.prototype.unique = function () {
     const tmp = new Map();
     return this.filter(item => {
@@ -242,7 +244,9 @@ Array.prototype.unique = function () {
     })
 }
 
-// Array.prototype.unique = function () {
-//     return [...new Set(this)];
-// }
+// 去重方案2 （还可以）
+Array.prototype.unique = function () {
+    return [...new Set(this)];
+}
+
 console.log(arr.unique())
