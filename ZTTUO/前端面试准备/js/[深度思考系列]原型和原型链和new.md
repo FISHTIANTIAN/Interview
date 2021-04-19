@@ -13,7 +13,7 @@ var person1 = new Person();
 var person2 = new Person();
 console.log(person1.name) // Kevin
 console.log(person2.name) // Kevin
-```text
+​```text
     构造函数：大Person
     实例对象：小person
     构造函数的prototype指向实例原型（用来储存公共内容）
@@ -37,7 +37,7 @@ xxx.__proto__  返回的东西其实就是 Object.getPrototypeOf(obj)方法返�
 
 ## 手动实现new的过程
 
-```javascript
+​```javascript
 function Create() {
     // 创建一个空的对象
     let _obj = new Object();
