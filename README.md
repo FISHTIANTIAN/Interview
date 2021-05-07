@@ -3,6 +3,10 @@
 ## github git clone 慢解决方案
 git clone https://github.com.cnpmjs.org/项目地址
 
+## github - 403问题
+git config --global --unset http.proxy
+git config --global --unset https.proxy
+
 ## HTML基础
 
 [集中收集零碎知识点](./ZTTUO/前端面试准备/html/集中收集零碎知识点.md)
