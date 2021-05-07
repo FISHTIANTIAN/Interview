@@ -43,7 +43,8 @@
 
 ### 精简2
 
-    首先从初始化data数据开始，使用Observer监听数据，个体每个数据属性添加Dep，并且在Data，有两个getter，setter。在它的getter过程添加收集依赖操作，在setter过程添加通知依赖的操作。
+    首先从初始化data数据开始，使用Observer监听数据，个体每个数据属性添加Dep，并且在Data，有两个getter，setter。
+    在它的getter过程添加收集依赖操作，在setter过程添加通知依赖的操作。
     在解析指令或者给vue实例设置watch选项或者调用$watch时，生成对应的watcher并收集依赖。
     Data通过Observer转换成了getter/setter的形式，来对数据追踪变化。
     修改对象的值的时候，会触发对应的setter，setter通知之前依赖收集得到的 Dep 中的每一个Watcher，告诉它们值改变了，需要重新渲染视图。
