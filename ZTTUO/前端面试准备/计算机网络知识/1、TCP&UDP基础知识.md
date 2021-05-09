@@ -67,3 +67,5 @@ head   +   head  + head +  data
 以太网标头  IP标头  TCP标头  应用层数据包
 
 [图解http学习笔记](https://segmentfault.com/u/landyliu)
+
+[TCP面试题整理](https://juejin.cn/post/6844904070889603085#heading-19)
