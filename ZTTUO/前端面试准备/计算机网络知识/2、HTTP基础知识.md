@@ -81,3 +81,29 @@ TRACE: (追踪请求-响应的传输路径) 回显服务器收到的请求，主
 从**幂等性**的角度: GET是幂等的，POST不是 (幂等表示执行相同的操作，结果也是相同的)
 
 从**TCP**的角度: GET请求会把请求报文一次性发送出去，POST则会将TCP包分为两个，先发送TCP包中的head部分，如果服务器返回100，然后发送body部分 (火狐浏览器除外，它的POST请求只发送一个TCP包)
+
+### 003: 如何理解 URI？
+
+完整的URL结构：
+
+![完整的URL结构](https://user-gold-cdn.xitu.io/2020/3/22/170ffd677629b70d?imageView2/0/w/1280/h/960/format/webp/ignore-error/1)
+
+scheme 表示协议名，比如http, https, file等等。后面必须和://连在一起。
+
+user:passwd@ 表示登录主机时的用户信息，不过很不安全，不推荐使用，也不常用。
+
+host:port 表示主机名和端口。
+
+path 表示请求路径，标记资源所在位置。
+
+query 表示查询参数，为key=val这种形式，多个键值对之间用&隔开。
+
+fragment表示 URI所定位的资源内的一个锚点，浏览器可以根据这个锚点跳转到对应的位置。
+
+```
+举个例子
+
+https://www.baidu.com/s?wd=HTTP&rsv_spt=1
+
+这个 URI 中，https即scheme部分，www.baidu.com为host:port部分（注意，http 和 https 的默认端口分别为80、443），/s为path部分，而wd=HTTP&rsv_spt=1就是query部分
+```
