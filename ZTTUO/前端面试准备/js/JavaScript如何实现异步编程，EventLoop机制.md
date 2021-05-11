@@ -19,3 +19,4 @@
 
 https://github.com/fi3ework/blog/issues/29
 
+[JavaScript 执行机制(讲的非常清楚)](https://juejin.cn/post/6844903512845860872)
