@@ -107,3 +107,29 @@ https://www.baidu.com/s?wd=HTTP&rsv_spt=1
 
 这个 URI 中，https即scheme部分，www.baidu.com为host:port部分（注意，http 和 https 的默认端口分别为80、443），/s为path部分，而wd=HTTP&rsv_spt=1就是query部分
 ```
+
+### 003. WebSocket 和 HTTP 有什么区别？
+
+相同点：
+
+a. 都是一样基于TCP的，都是可靠性传输协议。
+
+b. 都是应用层协议。
+
+不同点：
+
+a. WebSocket是双向通信协议，模拟Socket协议，可以双向发送或接受信息。HTTP是单向的。
+
+b. WebSocket是需要握手进行建立连接的(相对HTTP来说，WebSocket是一种持久化的协议。它会基于HTTP协议，来完成一部分握手，HTTP握手部分完成，协议升级为WebSocket)。
+
+### 004.  http 和 https 的区别
+
+a. HTTP 明文传输，数据都是未加密的，安全性较差，HTTPS（SSL+HTTP） 数据传输过程是加密的，安全性较好。
+
+b. 使用 HTTPS 协议需要到 CA（Certificate Authority，数字证书认证机构） 申请证书，一般免费证书较少，因而需要一定费用。
+
+c. HTTP 页面响应速度比 HTTPS 快，主要是因为 HTTP 使用 TCP 三次握手建立连接，客户端和服务器需要交换 3 个包，而 HTTPS除了 TCP 的三个包，还要加上 ssl 握手需要的 9 个包，所以一共是 12 个包。
+
+d. http 和 https 使用的是完全不同的连接方式，用的端口也不一样，前者是 80，后者是 443。
+
+e. HTTPS 其实就是建构在 SSL/TLS 之上的 HTTP 协议，所以，要比较 HTTPS 比 HTTP 要更耗费服务器资源。
