@@ -11,6 +11,10 @@ git config --global --unset https.proxy
 
 140.82.114.3 github.com
 
+## vscode 修改cmd窗口改为gitbash 
+
+"terminal.integrated.shell.windows":"F:\\Git\\Git\\bin\\bash.exe"
+
 ## HTML基础
 
 [集中收集零碎知识点](./ZTTUO/前端面试准备/html/集中收集零碎知识点.md)
