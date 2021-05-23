@@ -233,20 +233,31 @@
 // console.log(b1.list);
 // console.log(a1.list);
 
-const arr = [1, 1, '1', '1', 0, 0, '0', '0', undefined, undefined, null, null, NaN, NaN, {}, {}, [], [], 'a', 'a'];
+// const arr = [1, 1, '1', '1', 0, 0, '0', '0', undefined, undefined, null, null, NaN, NaN, {}, {}, [], [], 'a', 'a'];
 
-// 去重方案1 （更加好）
-Array.prototype.unique = function () {
-    const tmp = new Map();
-    return this.filter(item => {
-        console.log(tmp)
-        return !tmp.has(item) && tmp.set(item, 1);
-    })
+// // 去重方案1 （更加好）
+// Array.prototype.unique = function () {
+//     const tmp = new Map();
+//     return this.filter(item => {
+//         console.log(tmp)
+//         return !tmp.has(item) && tmp.set(item, 1);
+//     })
+// }
+
+// // 去重方案2 （还可以）
+// Array.prototype.unique = function () {
+//     return [...new Set(this)];
+// }
+
+// console.log(arr.unique())
+
+const add = function add(x) {
+	return function (y) {
+		return x + y
+	}
 }
 
-// 去重方案2 （还可以）
-Array.prototype.unique = function () {
-    return [...new Set(this)];
-}
+const add1 = add(1)
 
-console.log(arr.unique())
+add1(2)
+add1(20)
