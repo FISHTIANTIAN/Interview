@@ -1,8 +1,8 @@
 /**
- * 先序遍历口诀
+ * 后序遍历口诀
+ *  - 对节点的左子树进行后序遍历
+ *  - 对节点的右子树进行后序遍历
  *  - 访问根节点
- *  - 对节点的左子树进行先序遍历
- *  - 对节点的右子树进行先序遍历
  */
 
 const dataTree = {
@@ -37,9 +37,9 @@ const dataTree = {
 
 const preoder = (root) => {
   if (!root) return
-  console.log(root.val)
   preoder(root.left)
   preoder(root.right)
+  console.log(root.val)
 }
 
 preoder(dataTree)
