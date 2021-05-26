@@ -34,11 +34,28 @@ const dataTree = {
   }
 }
 
-const inorder = (root) => {
+// 递归版
+const inorder_1 = (root) => {
   if (!root) return
-  inorder(root.left)
-  console.log(root.val)
-  inorder(root.right)
+  inorder_1(root.left)
+  console.log("递归版:", root.val)
+  inorder_1(root.right)
 }
+inorder_1(dataTree)
 
-inorder(dataTree)
+// 非递归版，使用栈的后入先出特性实现
+const inorder_2 = (root) => {
+  if (!root) return
+  let stack = [root]
+  let _node = root.left
+  while (stack.length || _node) {
+    while (_node) {
+      stack.push(_node)
+      _node = _node.left
+    }
+    let _pop = stack.pop()
+    console.log("非递归版:", _pop.val)
+    _node = _pop.right
+  }
+}
+inorder_2(dataTree)
