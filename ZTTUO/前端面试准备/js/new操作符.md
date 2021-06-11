@@ -44,6 +44,13 @@ function _new(func) {
     // 否则，返回构造函数中的返回对象
     return obj
 }
+
+// 简易版本
+function _new(fn, ...arg) {
+    const obj = Object.create(fn.prototype);
+    const ret = fn.apply(obj, arg);
+    return ret instanceof Object ? ret : obj;
+}
 ```
 
 ## 手动实现参考连接
