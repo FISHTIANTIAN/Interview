@@ -23,8 +23,17 @@ function objectFactory() {
     return typeof ret === 'object' ? ret : obj;//确保构造器总是返回一个对象
 
 };
+
+// 精简版 优选！
+function _new(fn, ...arg) {
+    const obj = Object.create(fn.prototype);
+    const res = fn.apply(fn, arg);
+    return ret instanceof Object ? ret : obj
+}
 ```
 
 ## 手动实现参考连接
 
 https://github.com/mqyqingfeng/Blog/issues/13
+
+https://github.com/Advanced-Frontend/Daily-Interview-Question/issues/12
