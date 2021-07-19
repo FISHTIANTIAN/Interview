@@ -144,7 +144,7 @@ e. HTTPS 其实就是建构在 SSL/TLS 之上的 HTTP 协议，所以，要比�
 
 传输的时候设置Transfer-Encoding:chunked(设置之后会自动产生两个效果: 1、Content-Length字段会被忽略；2、基于长连接持续推送动态内容)
 
-### 008: HTTPS握手过程
+### 008: HTTPS - SSL 握手过程
 
 1、客户端通过https后面的url访问服务器，并于服务器建立ssl连接
 
