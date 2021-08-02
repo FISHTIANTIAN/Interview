@@ -50,8 +50,43 @@
 
 // // 1 7 13 5 8 6 9 2 3 4 10 11 12 14 15 16
 
-var b = 10; 
-(function a(){
-    b = 20
-})()
-console.log(b)
+// var b = 10; 
+// (function a(){
+//     b = 20
+// })()
+// console.log(b)
+
+// var btn = document.getElementById('center');
+// btn.addEventListener('click', function(){
+//     Promise.resolve().then(()=>{
+//         console.log('M1')
+//     })
+//     console.log('l1')
+// })
+
+// btn.addEventListener('click', function(){
+//     Promise.resolve().then(()=>{
+//         console.log('M2')
+//     })
+//     console.log('l2')
+// })
+
+// btn.click();
+
+Promise.resolve().then(()=>{
+    console.log(1)
+    return Promise.resolve(2)
+})
+.then(res => {
+    console.log(res)
+})
+
+Promise.resolve().then(()=>{
+    console.log(3)
+}).then(()=>{
+    console.log(4)
+}).then(()=>{
+    console.log(5)
+}).then(()=>{
+    console.log(6)
+})
