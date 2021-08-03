@@ -10,9 +10,13 @@
 
 ![img](https://wangtunan.github.io/blog/assets/img/6.c4905935.png)
 
+### 注意：new Promies() 是立即执行函数
+
 #### 参考文章
 
 [Event Loop事件循环](https://zhuanlan.zhihu.com/p/33058983)
+
+[优秀的事件循环参考文章](https://www.cnblogs.com/SRH151219/p/11164201.html)
 
 ### nextTick原理
 
