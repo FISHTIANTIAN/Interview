@@ -10,3 +10,14 @@ Function.prototype.ztApply = function (content, args) {
     // 执行函数并返回结果 相当于把自身作为传入的context的方法进行调用了
     return content[fn](...args)
 }
+
+// 20210805
+Function.prototype.ztApply = function (content, args) {
+    if (!content || content === null) {
+        content = window
+    }
+
+    let fn = Symbol()
+    content[fn] = this
+    return content[fn](...args)
+}

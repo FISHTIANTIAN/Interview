@@ -10,3 +10,13 @@ Function.prototype.ztCall = function (context, ...args) {
     // 执行函数并返回结果 相当于把自身作为传入的context的方法进行调用了
     return context[fn](...args)
 }
+
+// 20210805
+Function.prototype.ztCall = function (context, ...args) {
+    if(!context || context === null) {
+        context = window
+    }
+    let fn = Symbol()
+    context[fn] = this
+    return context[fn](...args)
+}
