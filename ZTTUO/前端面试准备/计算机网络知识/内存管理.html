@@ -1,0 +1,180 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>内存管理</title>
+  <link rel="stylesheet" href="https://stackedit.io/style.css" />
+</head>
+
+<body class="stackedit">
+  <div class="stackedit__html">
+    <p></p>
+    <div class="toc">
+      <h3>JS核心知识</h3>
+      <ul>
+        <ul>
+          <li><a href="#_1">内存管理介绍</a></li>
+          <li><a href="#JavaSript_7">JavaSript中的内存管理</a></li>
+          <li><a href="#JavaScript_12">JavaScript中的垃圾</a></li>
+          <li><a href="#JavaScript_17">JavaScript中的可达对象</a></li>
+          <li><a href="#GC_22">GC算法是什么</a></li>
+          <li><a href="#GC_27">常见GC算法</a></li>
+          <ul>
+            <li><a href="#_33">引用计数算法</a></li>
+            <li><a href="#_39">引用计数算法优点</a></li>
+            <li><a href="#_43">引用计数算法缺点</a></li>
+            <li><a href="#_47">标记清除算法</a></li>
+            <li><a href="#_53">标记清除算法优点</a></li>
+            <li><a href="#_56">标记清除算法缺点</a></li>
+            <li><a href="#_59">标记整理算法</a></li>
+          </ul>
+          <li><a href="#V8_64">认识V8</a></li>
+          <li><a href="#V8_69">V8垃圾回收策略</a></li>
+          <li><a href="#V8GC_74">V8中常用GC算法</a></li>
+          <li><a href="#V8_81">V8内存分配</a></li>
+          <li><a href="#_86">新生代对象回收实现</a></li>
+          <ul>
+            <li><a href="#_94">回收细节说明</a></li>
+          </ul>
+          <li><a href="#_100">老年代对象回收实现</a></li>
+          <li><a href="#_106">细节对比</a></li>
+        </ul>
+      </ul>
+    </div>
+    <p></p>
+    <h2><a id="_1"></a>内存管理介绍</h2>
+    <ul>
+      <li>内存：由可读写单元组成，表示一片可操作空间</li>
+      <li>管理：人为的去操作一片空间的申请、使用和释放</li>
+      <li>内存管理：开发者主动申请空间、使用空间、释放空间</li>
+      <li>管理流程：申请 - 使用 - 释放</li>
+    </ul>
+    <h2><a id="JavaSript_7"></a>JavaSript中的内存管理</h2>
+    <ul>
+      <li>申请内存空间</li>
+      <li>使用内存空间</li>
+      <li>释放内存空间</li>
+    </ul>
+    <h2><a id="JavaScript_12"></a>JavaScript中的垃圾</h2>
+    <ul>
+      <li>JavaScript中的内存管理是自动的</li>
+      <li>对象不再被引用时是垃圾</li>
+      <li>对象不能从根上访问到时是垃圾</li>
+    </ul>
+    <h2><a id="JavaScript_17"></a>JavaScript中的可达对象</h2>
+    <ul>
+      <li>可以访问到的对象就是可达对象(引用、作用域链)</li>
+      <li>可达的标准就是从根出发是否能够被找到</li>
+      <li>JavaScript中的根就可以理解为是全局变量对象</li>
+    </ul>
+    <h2><a id="GC_22"></a>GC算法是什么</h2>
+    <ul>
+      <li>GC是一种机制，垃圾回收器完成具体的工作</li>
+      <li>工作的内容就是查找垃圾释放空间、回收空间</li>
+      <li>算法就是工作时查找和回收所遵循的规则</li>
+    </ul>
+    <h2><a id="GC_27"></a>常见GC算法</h2>
+    <ul>
+      <li>引用计数</li>
+      <li>标记清除</li>
+      <li>标记整理</li>
+      <li>分代回收</li>
+    </ul>
+    <h3><a id="_33"></a>引用计数算法</h3>
+    <ul>
+      <li>核心思想：设置引用数，判断当前引用数是否为0</li>
+      <li>引用计数器</li>
+      <li>引用关系改变时修改引用数字</li>
+      <li>引用数字为0时立即回收</li>
+    </ul>
+    <h3><a id="_39"></a>引用计数算法优点</h3>
+    <ul>
+      <li>发现垃圾时立即回收</li>
+      <li>最大限度减少程序暂停</li>
+    </ul>
+    <h3><a id="_43"></a>引用计数算法缺点</h3>
+    <ul>
+      <li>无法回收循环引用的对象</li>
+      <li>时间开销大</li>
+    </ul>
+    <h3><a id="_47"></a>标记清除算法</h3>
+    <ul>
+      <li>核心思想：分标记和清除二个阶段</li>
+      <li>遍历所有对象找标记活动对象</li>
+      <li>遍历所有对象清除没有标记对象</li>
+      <li>回收相应的空间</li>
+    </ul>
+    <h3><a id="_53"></a>标记清除算法优点</h3>
+    <ul>
+      <li>较引用计数算法可以回收循环引用的对象</li>
+    </ul>
+    <h3><a id="_56"></a>标记清除算法缺点</h3>
+    <ul>
+      <li>空间碎片化(释放的空间地址不连续)</li>
+    </ul>
+    <h3><a id="_59"></a>标记整理算法</h3>
+    <ul>
+      <li>标记整理可以看做是编辑清除的增强</li>
+      <li>标记阶段的操作和标记清除一样</li>
+      <li>清除阶段会先执行整理，移动对象位置(释放的空间地址连续)</li>
+    </ul>
+    <h2><a id="V8_64"></a>认识V8</h2>
+    <ul>
+      <li>V8是一款主流的JavaScript执行引擎</li>
+      <li>V8采用即时编辑</li>
+      <li>V8内存设限(64位操作系统一般不超过1.5G，32位操作系统一般不超过800M)</li>
+    </ul>
+    <h2><a id="V8_69"></a>V8垃圾回收策略</h2>
+    <ul>
+      <li>采用分代回收的思想</li>
+      <li>内存分为新生代、老生代</li>
+      <li>针对不同对象采用不同算法</li>
+    </ul>
+    <h2><a id="V8GC_74"></a>V8中常用GC算法</h2>
+    <ul>
+      <li>分代回收</li>
+      <li>空间复制</li>
+      <li>标记清除</li>
+      <li>标记整理</li>
+      <li>标记增量</li>
+    </ul>
+    <h2><a id="V8_81"></a>V8内存分配</h2>
+    <ul>
+      <li>V8内存空间一分为二</li>
+      <li>小空间用于存储新生代对象(32M|16M)</li>
+      <li>新生代指的是存活时间较短的对象</li>
+    </ul>
+    <h2><a id="_86"></a>新生代对象回收实现</h2>
+    <ul>
+      <li>回收过程采用复制算法 + 标记整理</li>
+      <li>新生代内存区分为二个等大小空间</li>
+      <li>使用空间为From，空闲空间为To</li>
+      <li>活动对象存储于From空间</li>
+      <li>标记整理后将活动对象拷贝至To</li>
+      <li>From与To交换空间完成释放</li>
+    </ul>
+    <h3><a id="_94"></a>回收细节说明</h3>
+    <ul>
+      <li>拷贝过程中可能出现晋升</li>
+      <li>晋升就是讲新生代对象移动至老生代</li>
+      <li>一轮GC还存活的新生代需要晋升</li>
+      <li>To空间的使用率超过25%需要移动到老生代</li>
+    </ul>
+    <h2><a id="_100"></a>老年代对象回收实现</h2>
+    <ul>
+      <li>主要采用标记清除、标记整理、增量标记算法</li>
+      <li>首先使用标记清除完成垃圾空间的回收</li>
+      <li>采用标记整理进行空间优化</li>
+      <li>采用增量标记进行效率优化</li>
+    </ul>
+    <h2><a id="_106"></a>细节对比</h2>
+    <ul>
+      <li>新生代区域垃圾回收使用空间换时间</li>
+      <li>老生代区域垃圾回收不适合复制算法</li>
+    </ul>
+  </div>
+</body>
+
+</html>
