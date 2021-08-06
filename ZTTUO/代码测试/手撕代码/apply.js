@@ -16,7 +16,16 @@ Function.prototype.ztApply = function (content, args) {
     if (!content || content === null) {
         content = window
     }
+    let fn = Symbol()
+    content[fn] = this
+    return content[fn](...args)
+}
 
+// 20210806
+Function.prototype.ztApply = function (content, args) {
+    if(!content || content === null) {
+        content = window
+    }
     let fn = Symbol()
     content[fn] = this
     return content[fn](...args)

@@ -32,15 +32,37 @@ Function.prototype.ztBind = function (content, ...args) {
 }
 
 // 20210805
-Function.prototype.ztBind = function (context, ...args) {
-    if (!context || context === null) {
-        context = window
+Function.prototype.ztBind = function (content, ...args) {
+    if (!content || content === null) {
+        content = window
     }
     let fn = Symbol()
-    context[fn] = this
+    content[fn] = this
     let _this = this
     const result = function (...innerArgs) {
         if (this instanceof _this === true) {
+            this[fn] = _this
+            this[fn](...[...args, ...innerArgs])
+            delete this[fn]
+        } else {
+            this[fn](...[...args, ...innerArgs])
+            delete this[fn]
+        }
+    }
+    result.prototype = Object.create(this.prototype)
+    return result
+}
+
+// 20210806
+Function.prototype.ztBind = function (content, ...args) {
+    if(!content || content === null) {
+        content = window
+    }
+    let fn = Symbol()
+    content[fm] = this
+    let _this = this
+    const result = function (...innerArgs) {
+        if(_this instanceof this === true) {
             this[fn] = _this
             this[fn](...[...args, ...innerArgs])
             delete this[fn]
