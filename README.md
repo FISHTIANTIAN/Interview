@@ -7,10 +7,6 @@ git clone https://github.com.cnpmjs.org/项目地址
 git config --global --unset http.proxy
 git config --global --unset https.proxy
 
-199.232.69.194 global-ssl.fastly.Net
-
-140.82.114.3 github.com
-
 ## vscode 修改cmd窗口改为gitbash 
 
 "terminal.integrated.shell.windows":"F:\\Git\\Git\\bin\\bash.exe"
