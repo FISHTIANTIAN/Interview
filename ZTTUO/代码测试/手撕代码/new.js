@@ -14,3 +14,10 @@ function ztNew(fn, ...arg) {
     let result = fn.apply(obj, arg)
     return result instanceof Object ? result : obj
 }
+
+// 20210809
+function ztNew(fn, ...args) {
+    let obj = Object.create(fn.prototype)
+    let result = fn.apply(obj, args)
+    return result instanceof Object ? result : obj
+}

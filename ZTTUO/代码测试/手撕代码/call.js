@@ -13,7 +13,7 @@ Function.prototype.ztCall = function (content, ...args) {
 
 // 20210805
 Function.prototype.ztCall = function (content, ...args) {
-    if(!content || content === null) {
+    if (!content || content === null) {
         content = window
     }
     let fn = Symbol()
@@ -23,7 +23,17 @@ Function.prototype.ztCall = function (content, ...args) {
 
 // 20210806
 Function.prototype.ztCall = function (content, ...args) {
-    if(!content || content === null) {
+    if (!content || content === null) {
+        content = window
+    }
+    let fn = Symbol()
+    content[fn] = this
+    return content[fn](...args)
+}
+
+// 20210809
+Function.prototype.ztCall = function (content, ...args) {
+    if (!content || content === null) {
         content = window
     }
     let fn = Symbol()

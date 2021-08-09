@@ -55,19 +55,41 @@ Function.prototype.ztBind = function (content, ...args) {
 
 // 20210806
 Function.prototype.ztBind = function (content, ...args) {
-    if(!content || content === null) {
+    if (!content || content === null) {
         content = window
     }
     let fn = Symbol()
     content[fm] = this
     let _this = this
     const result = function (...innerArgs) {
-        if(_this instanceof this === true) {
+        if (_this instanceof this === true) {
             this[fn] = _this
             this[fn](...[...args, ...innerArgs])
             delete this[fn]
         } else {
             this[fn](...[...args, ...innerArgs])
+            delete this[fn]
+        }
+    }
+    result.prototype = Object.create(this.prototype)
+    return result
+}
+
+// 20210809
+Function.prototype.ztBind = function (content, ...args) {
+    if (!content || content === null) {
+        content = window
+    }
+    let fn = Symbol()
+    content[fn] = this
+    let _this = this
+    const result = function (...innerArgs) {
+        if (_this instanceof this) {
+            content[fn] = _this
+            content[fn](...[...args, ...innerArgs])
+            delete this[fn]
+        } else {
+            content[fn](...[...args, ...innerArgs])
             delete this[fn]
         }
     }

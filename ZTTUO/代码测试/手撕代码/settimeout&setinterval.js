@@ -1,6 +1,7 @@
 // settimeout 模拟实现 setinterval
 function mySettimeout(fn, t) {
     let timer = null;
+
     function interval() {
         fn();
         timer = setTimeout(interval, t);

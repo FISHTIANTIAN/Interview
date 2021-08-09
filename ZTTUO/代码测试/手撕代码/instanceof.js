@@ -31,11 +31,26 @@ function ztInstanceof(left, right) {
 function ztInstanceof(left, right) {
     left = left.__proto__
     let prototype = right.prototype
-    while(true) {
-        if(left === null) {
+    while (true) {
+        if (left === null) {
             return false
         }
-        if(left == prototype) {
+        if (left == prototype) {
+            return true
+        }
+        left = left.__proto__
+    }
+}
+
+// 20210809
+function ztInstanceof(left, right) {
+    left = left.__proto__
+    let prototype = right.prototype
+    while (true) {
+        if (left === null) {
+            return false
+        }
+        if (left === prototype) {
             return true
         }
         left = left.__proto__
