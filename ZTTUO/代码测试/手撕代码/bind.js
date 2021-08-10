@@ -96,3 +96,16 @@ Function.prototype.ztBind = function (content, ...args) {
     result.prototype = Object.create(this.prototype)
     return result
 }
+
+// 20210810
+Function.prototype.ztBind = function (content, ...args) {
+    if (!content || content === null) {
+        content = window
+    }
+    let fn = Symbol()
+    content[fn] = this
+    let _this = this
+    const result = function (...innerArgs) {
+
+    }
+}
