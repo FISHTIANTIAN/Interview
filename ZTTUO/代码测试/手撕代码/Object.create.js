@@ -1,5 +1,5 @@
-function create(proto) {
-    function F() {}
-    F.prototype = proto
-    return new F()
-}
+// function create(proto) {
+//     function F() {}
+//     F.prototype = proto
+//     return new F()
+// }
