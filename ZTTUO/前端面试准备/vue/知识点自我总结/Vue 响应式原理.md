@@ -1,3 +1,3 @@
-- Vue.js 是采用数据劫持结合发布者-订阅者模式的方式，通过Object.ddefindeProperty对data中的数据进行劫持setter/getter方法。
+- Vue是采用数据劫持结合发布者-订阅者模式的方式，通过Object.ddefindeProperty对数据进行劫持并重写setter/getter方法。
 - 由于vue执行一个组件的render函数是由观察者watcher代理执行的，watcher在执行前会将自己赋值给Dep.target这个全局变量，等待响应式属性去收集它。
 - 这样子在哪个组件执行render函数访问了响应式属性，响应式属性就会精确的收集到当前全局存在的Dep.target这个属性作为自身的依赖，在响应式属性发生更新时通知 Watcher 去重新调用 vm._update(vm._render())方法，生成新的虚拟 DOM 树，vue会进行diff算法比较新老dom记录差别并记录，最后，加载操作，将所有记录的不同点，局部修改到真实 DOM树上，完成渲染
