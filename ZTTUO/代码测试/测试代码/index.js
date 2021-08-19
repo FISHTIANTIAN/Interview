@@ -106,15 +106,33 @@
 
 // console.log('代码执行结束');
 
-function myInstanceof(left, right) {
-    let proto = Object.getPrototypeOf(left), // 获取对象的原型
-        prototype = right.prototype; // 获取构造函数的 prototype 对象
+// function myInstanceof(left, right) {
+//     let proto = Object.getPrototypeOf(left), // 获取对象的原型
+//         prototype = right.prototype; // 获取构造函数的 prototype 对象
 
-    // 判断构造函数的 prototype 对象是否在对象的原型链上
-    while (true) {
-        if (!proto) return false;
-        if (proto === prototype) return true;
+//     // 判断构造函数的 prototype 对象是否在对象的原型链上
+//     while (true) {
+//         if (!proto) return false;
+//         if (proto === prototype) return true;
 
-        proto = Object.getPrototypeOf(proto);
-    }
-}
+//         proto = Object.getPrototypeOf(proto);
+//     }
+// }
+
+// window.number = 2;
+// var obj = {
+//     number: 3,
+//     db1: (function(){
+//         console.log(this); // window
+//         this.number *= 4; // window.number = 8
+//         return function(){
+//             console.log(this);
+//             this.number *= 5;
+//         }
+//     })()
+// }
+// var db1 = obj.db1;
+// db1(); // this -> window, window.number = 40
+// obj.db1(); // this -> obj, obj.number = 15
+// console.log(obj.number);   
+// console.log(window.number);

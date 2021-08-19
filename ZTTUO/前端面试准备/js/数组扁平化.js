@@ -49,3 +49,15 @@ function flatten(arr) {
 
 
 console.log(flatten(arr))
+
+// 使用生成器函数
+function * flatten (arr) {
+    for (let i = 0; i < arr.length; i++) {
+      if (Array.isArray(arr[i])) {
+        yield * flatten(arr[i])
+      } else {
+        yield arr[i]
+      }
+    }
+  }
+  console.log([...flatten(arr)])
