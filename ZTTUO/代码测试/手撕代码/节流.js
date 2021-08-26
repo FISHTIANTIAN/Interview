@@ -38,3 +38,17 @@ function ztThrottle(fn, wait) {
         }
     }
 }
+
+// 20210826
+function ztThrottle(fn, wait) {
+    var timeout;
+    return function () {
+        var args = arguments
+        if (!timeout) {
+            timeout = setTimeout(() => {
+                timeout = null
+                fn.apply(this, args)
+            }, wait)
+        }
+    }
+}
