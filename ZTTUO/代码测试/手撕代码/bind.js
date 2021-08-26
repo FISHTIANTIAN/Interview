@@ -106,6 +106,15 @@ Function.prototype.ztBind = function (content, ...args) {
     content[fn] = this
     let _this = this
     const result = function (...innerArgs) {
-
+        if (_this instanceof this) {
+            content[fn] = _this
+            content[fn](...[...args, ...innerArgs])
+            delete this[fn]
+        } else {
+            content[fn](...[...args, ...innerArgs])
+            delete this[fn]
+        }
+        result.prototype = Object.create(this.prototype)
+        return return
     }
 }
