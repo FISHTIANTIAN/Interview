@@ -115,6 +115,6 @@ Function.prototype.ztBind = function (content, ...args) {
             delete this[fn]
         }
         result.prototype = Object.create(this.prototype)
-        return return
+        return result
     }
 }
