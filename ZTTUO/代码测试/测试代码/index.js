@@ -136,3 +136,28 @@
 // obj.db1(); // this -> obj, obj.number = 15
 // console.log(obj.number);   
 // console.log(window.number);
+
+async function asyncForEach(array, callback) {
+    for (let index = 0; index < array.length; index++) {
+        await callback(array[index], index, array)
+    }
+}
+var multi = num => {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            if (num) {
+                console.log(num * num);
+                resolve(num * num)
+            } else {
+                reject(new Error('num not specified'))
+            }
+        }, 1000)
+    })
+}
+async function test() {
+    var nums = await Promise.resolve([1, 2, 3, 4, 5, 6])
+    asyncForEach(nums, async x => {
+        await multi(x)
+    })
+}
+test()
