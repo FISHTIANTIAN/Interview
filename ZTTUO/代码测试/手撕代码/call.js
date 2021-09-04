@@ -50,3 +50,13 @@ Function.prototype.ztCall = function (content, ...args) {
     content[fn] = this
     return content[fn](...args)
 }
+
+// 20210830
+Function.prototype.ztCall = function (content, ...args) {
+    if(!content || content === null) {
+        content = window
+    }
+    let fn = Symbol()
+    content[fn] = this
+    return content[fn](...args)
+}

@@ -1,3 +1,7 @@
+const {
+    connect
+} = require("nodejs-websocket");
+
 Function.prototype.ztApply = function (content, args) {
     // 用于判断第一个参数是否为空或者为null
     if (!content || content === null) {
@@ -60,4 +64,14 @@ Function.prototype.ztApply = function (content, args) {
     let fn = Symbol()
     content[fn] = this
     return content[fn](...args)
+}
+
+// 20210830
+Function.prototype.ztApply = function (content, args) {
+    if (!content || content === null) {
+        content = window
+    }
+    let fn = Symbol()
+    content[fn] = this
+    return connect[fn](...args)
 }

@@ -1,20 +1,20 @@
 ## flex属性
 
 以下6个属性设置在容器上
-- flex-direction
-- flex-wrap
-- flex-flow
+- flex-direction 主轴
+- flex-wrap  换行
+- flex-flow flex-direction + flex-wrap 组合的语法
 - justify-content
 - align-items
-- align-content
+- align-content 布局物体的整体进行布局
 
 以下6个属性设置在项目上
-- order
-- flex-grow
-- flex-shrink
-- flex-basis
-- flex
-- align-self
+- order 定义项目的排列顺序。数值越小，排列越靠前，默认为0
+- flex-grow 定义项目的放大比例，默认为0，即如果存在剩余空间，也不放大
+- flex-shrink 定义了项目的缩小比例，默认为1，即如果空间不足，该项目将缩小
+- flex-basis 项目占据的主轴空间
+- flex  是flex-grow, flex-shrink 和 flex-basis的简写
+- align-self 允许单个项目有与其他项目不一样的对齐方式
 
 ## flex-direction
 
