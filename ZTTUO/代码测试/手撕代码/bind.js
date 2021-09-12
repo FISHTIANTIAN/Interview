@@ -141,3 +141,26 @@ Function.prototype.ztBind = function (content, ...args) {
         return result
     }
 }
+
+//20210907
+Function.prototype.ztBind = function (content, ...args) {
+    if (!content || content === null) {
+        content = window
+    }
+
+    let fn = Symbol()
+    content[fn] = this
+    let _this = this
+    const result = function (...innerArgs) {
+        if (_this instanceof this) {
+            content[fn] = _this
+            content[fn](...[...args, ...innerArgs])
+            delete this[fn]
+        } else {
+            content[fn](...[...args, ...innerArgs])
+            delete this[fn]
+        }
+    }
+    result.prototype = Object.create(this.prototype)
+    return result
+}
